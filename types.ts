@@ -1,19 +1,32 @@
-import { FunctionComponent } from "react"
-import { Transaction } from "../../utils/types"
-
-export type SetTransactionApprovalFunction = (params: {
-  transactionId: string
-  newValue: boolean
-}) => Promise<void>
-
-type TransactionsProps = { transactions: Transaction[] | null }
-
-type TransactionPaneProps = {
-  transaction: Transaction
-  loading: boolean
-  approved?: boolean
-  setTransactionApproval: SetTransactionApprovalFunction
+export type Transaction = {
+  id: string
+  amount: number
+  employee: Employee
+  merchant: string
+  date: string
+  approved: boolean
 }
 
-export type TransactionsComponent = FunctionComponent<TransactionsProps>
-export type TransactionPaneComponent = FunctionComponent<TransactionPaneProps>
+export type Employee = {
+  id: string
+  firstName: string
+  lastName: string
+}
+
+export type PaginatedResponse<TData> = {
+  data: TData
+  nextPage: number | null
+}
+
+export type PaginatedRequestParams = {
+  page: number | null
+}
+
+export type RequestByEmployeeParams = {
+  employeeId: string
+}
+
+export type SetTransactionApprovalParams = {
+  transactionId: string
+  value: boolean
+}
