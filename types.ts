@@ -1,3 +1,10 @@
-import { FunctionComponent, PropsWithChildren } from "react"
+import { FunctionComponent } from "react"
 
-export type AppContextProviderComponent = FunctionComponent<PropsWithChildren<unknown>>
+type InputCheckboxProps = {
+  id: string | number
+  checked?: boolean
+  onChange: (newValue: boolean) => void
+  disabled?: boolean
+}
+
+export type InputCheckboxComponent = FunctionComponent<InputCheckboxProps>
